@@ -1,0 +1,43 @@
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <!-- <th scope="col">ID</th> -->
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Category</th>
+      <th scope="col">AllowComments</th>
+      <th scope="col" colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.forEach(post => { %>
+      <tr>
+        <!-- <th scope="row">
+          <%= post._id %>
+        </th> -->
+        <td scope="row">
+          <img src="/images/post-images/<%= post.image %>" width="50" alt="post image">
+        </td>
+        <td>
+          <%= post.title %>
+        </td>
+        <td>
+          <%= post.status %>
+        </td>
+        <td>
+          <%= post.cat %>
+        </td>
+        <td>
+          <%= post.allowComment %>
+        </td>
+        <td>
+          <a href="/admin/posts/edit/<%= post.slug %>" class="btn btn-sm btn-primary">Edit</a>
+        </td>
+        <td>
+          <a href="/admin/posts/delete/<%= post._id %>" class="btn btn-sm btn-danger">Remove</a>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

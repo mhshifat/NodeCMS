@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Website Title -->
+  <title>NodeCMS - A Complete CMS Application For Managing Blogs</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/blog-home.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <%- include ../includes/_navbar %>
+    <!-- Main -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <% if (error.length) { %>
+            <div class="alert alert-danger" role="alert">
+              <%= error %>
+            </div>
+            <% } else if (success.length) { %>
+              <div class="alert alert-success" role="alert">
+                <%= success %>
+              </div>
+              <% } %>
+        </div>
+      </div>
+    </div>
+    <%- body %>
+      <!-- Footer -->
+      <%- include ../includes/_footer %>
+        <!-- JavaScript Area -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

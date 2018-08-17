@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-4">
+    <h4>Create Category</h4>
+    <form action="/admin/categories/add" method="POST">
+      <div class="form-group">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      </div>
+      <div class="form-group">
+        <label for="cat">Category Name</label>
+        <input type="text" name="cat" class="form-control" autofocus autocomplete="off" id="cat" placeholder="Enter category name">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary form-control">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    <h4>Categories</h4>
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cats.forEach(cat => { %>
+          <tr>
+            <th scope="row">
+              <%= cat._id %>
+            </th>
+            <td>
+              <%= cat.name %>
+            </td>
+            <td>
+              <a href="/admin/categories/edit/<%= cat._id %>" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+            <td>
+              <a href="/admin/categories/delete/<%= cat._id %>" class="btn btn-danger btn-sm">Remove</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

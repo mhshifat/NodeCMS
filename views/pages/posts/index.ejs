@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+      <h4 class="text-center m-3">All Posts</h1>
+
+        <!-- Blog Post -->
+        <% posts.forEach(post => { %>
+          <div class="card mb-4">
+            <img class="card-img-top" src="/images/post-images/<%= post.image %>" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= post.title %>
+              </h4>
+              <p class="card-text">
+                <%= post.body %>
+              </p>
+              <a href="/posts/<%= post.slug %>" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+          </div>
+          <% }) %>
+
+            <!-- Pagination -->
+            <%- include ../../includes/_pagination %>
+
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <%- include ../../includes/_sidebar %>
+
+  </div>
+  <!-- /.row -->
+
+</div>
